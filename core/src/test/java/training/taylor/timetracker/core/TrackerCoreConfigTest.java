@@ -1,6 +1,7 @@
 package training.taylor.timetracker.core;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,19 +12,16 @@ import training.taylor.timetracker.core.dao.TimeEntry;
 
 import java.util.List;
 
-/**
- * Created by Jason on 6/20/2015.
- */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = TrackerCoreConfig.class)
 public class TrackerCoreConfigTest {
 
     @Autowired
-    List<TimeEntry> entries;
+    private List<TimeEntry> entries;
 
     @Test
-    public void testMe() {
-        assertNotNull(entries);
+    public void testBeanInjection() {
+        assertNotNull("Entries list should not be null", entries);
+        assertTrue("Entries list should be initially empty", entries.isEmpty());
     }
-
 }
