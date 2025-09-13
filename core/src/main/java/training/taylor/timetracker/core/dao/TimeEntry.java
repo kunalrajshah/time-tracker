@@ -1,40 +1,41 @@
 package training.taylor.timetracker.core.dao;
 
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
-
-/**
- * Created by Jason on 6/19/2015.
- */
-@Component
-@Scope("prototype")
 public class TimeEntry {
     private String description;
     private float rate;
     private int time;
 
+    public TimeEntry() {
+    }
+
+    public TimeEntry(String description, float rate, int time) {
+        this.description = description;
+        this.rate = rate;
+        this.time = time;
+    }
+
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String value) {
-        this.description = value;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public float getRate() {
         return rate;
     }
 
-    public void setRate(float value) {
-        this.rate = value;
+    public void setRate(float rate) {
+        this.rate = rate;
     }
 
     public int getTime() {
         return time;
     }
 
-    public void setTime(int value) {
-        this.time = value;
+    public void setTime(int time) {
+        this.time = time;
     }
 
     @Override
